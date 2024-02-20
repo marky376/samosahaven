@@ -43,7 +43,7 @@ class HomePage extends StatelessWidget {
                 color: Colors.blue,
               ),
               child: Text(
-                'Menu',
+                'Samosa Haven',
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 24,
