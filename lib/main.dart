@@ -64,9 +64,9 @@ class HomePage extends StatelessWidget {
                   ),
                   SizedBox(height: 10.0),
                   // You can add images and descriptions of different types of samosas here
-                  Text('1. Veg Samosa'),
-                  Text('2. Chicken Samosa'),
-                  Text('3. Paneer Samosa'),
+                  Text('1. Waru Samosa'),
+                  Text('2. Ndengu Samosa'),
+                  Text('3. Veg Samosa'),
                   // Add more samosa options as needed
                 ],
               ),
@@ -82,8 +82,8 @@ class HomePage extends StatelessWidget {
                     style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
                   ),
                   SizedBox(height: 10.0),
-                  Text('We offer delivery within [your area].'),
-                  Text('Delivery charges may apply.'),
+                  Text('We offer delivery within Hostels and Bangik area.'),
+                  Text('Delivery charges are free.'),
                   // Add more delivery information as needed
                 ],
               ),
@@ -100,8 +100,7 @@ class HomePage extends StatelessWidget {
                     style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
                   ),
                   SizedBox(height: 10.0),
-                  Text('Phone: [your phone number]'),
-                  Text('Email: [your email address]'),
+                  Text('Phone: 0742138182 or 0757546180'),
                   // Add more contact information as needed
                 ],
               ),
