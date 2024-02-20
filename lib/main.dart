@@ -43,7 +43,7 @@ class HomePage extends StatelessWidget {
                 color: Colors.blue,
               ),
               child: Text(
-                'Samosa Haven',
+                'Menu',
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 24,
@@ -53,12 +53,13 @@ class HomePage extends StatelessWidget {
             ListTile(
               title: Text('Home'),
               onTap: () {
-                // Navigate to home screen
+                Navigator.pop(context); // Close the drawer
               },
             ),
             ListTile(
               title: Text('Place Order'),
               onTap: () {
+                Navigator.pop(context); // Close the drawer
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => OrderForm()),
