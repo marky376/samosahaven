@@ -30,25 +30,18 @@ class HomePage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            // Header with logo
+            // Header with text-logo
             Container(
               padding: EdgeInsets.all(20.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  // Image.asset(
-                  //   'assets/logo.png',
-                  //   width: 100.0,
-                  //   height: 100.0,
-                  //   // Adjust the image path as per your project structure
-                  // ),
-                  SizedBox(height: 10.0),
-                  Text(
-                    'Delicious Samosas Delivered to Your Doorstep!',
-                    style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
-                    textAlign: TextAlign.center,
-                  ),
-                ],
+              child: Text(
+                'Samosa Haven',
+                style: TextStyle(
+                  fontSize: 32.0,
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: 2.0,
+                  color: Colors.blue,
+                ),
+                textAlign: TextAlign.center,
               ),
             ),
             // Section showcasing samosas
@@ -105,9 +98,100 @@ class HomePage extends StatelessWidget {
                 ],
               ),
             ),
+            // Order button with form
+            Container(
+              padding: EdgeInsets.all(20.0),
+              child: OrderForm(),
+            ),
           ],
         ),
       ),
+    );
+  }
+}
+
+class OrderForm extends StatefulWidget {
+  @override
+  _OrderFormState createState() => _OrderFormState();
+}
+
+class _OrderFormState extends State<OrderForm> {
+  int _quantity = 1;
+  bool _includeKachumbari = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Text(
+          'Order Samosas:',
+          style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+        ),
+        SizedBox(height: 10.0),
+        Row(
+          children: <Widget>[
+            Text('Quantity:'),
+            SizedBox(width: 10.0),
+            DropdownButton<int>(
+              value: _quantity,
+              items: [1, 2, 3, 4, 5].map((int value) {
+                return DropdownMenuItem<int>(
+                  value: value,
+                  child: Text(value.toString()),
+                );
+              }).toList(),
+              onChanged: (int? newValue) { // Update argument type to int?
+                setState(() {
+                  _quantity = newValue ?? 1;
+                });
+              },
+            ),
+          ],
+        ),
+        Row(
+          children: <Widget>[
+            Checkbox(
+              value: _includeKachumbari,
+              onChanged: (bool? newValue) { // Update argument type to bool?
+                setState(() {
+                  _includeKachumbari = newValue ?? false;
+                });
+              },
+            ),
+            Text('Include Kachumbari'),
+          ],
+        ),
+        ElevatedButton( // Change RaisedButton to ElevatedButton
+          onPressed: () {
+            // Calculate total price
+            int totalPrice = _quantity * 10; // Each samosa costs 10 KSH
+            if (_includeKachumbari) {
+              // Kachumbari is free
+              totalPrice += 0;
+            }
+            // Show dialog with total price
+            showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return AlertDialog(
+                  title: Text('Order Summary'),
+                  content: Text('Total Price: $totalPrice KSH'),
+                  actions: <Widget>[
+                    TextButton( // Change FlatButton to TextButton
+                      child: Text('OK'),
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                    ),
+                  ],
+                );
+              },
+            );
+          },
+          child: Text('Place Order'),
+        ),
+      ],
     );
   }
 }
