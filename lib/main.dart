@@ -57,15 +57,12 @@ class HomePage extends StatelessWidget {
               },
             ),
             ListTile(
-              title: Text('About Us'),
+              title: Text('Place Order'),
               onTap: () {
-                // Navigate to about us screen
-              },
-            ),
-            ListTile(
-              title: Text('Contact Us'),
-              onTap: () {
-                // Navigate to contact us screen
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => OrderForm()),
+                );
               },
             ),
           ],
@@ -170,7 +167,7 @@ class _OrderFormState extends State<OrderForm> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Text(
-          'Order Samosas:',
+          'Order Now:',
           style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
         ),
         SizedBox(height: 10.0),
