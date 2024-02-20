@@ -25,6 +25,51 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Samosa Haven'),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.shopping_cart),
+            onPressed: () {
+              // Navigate to shopping cart screen
+            },
+          ),
+        ],
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.blue,
+              ),
+              child: Text(
+                'Menu',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 24,
+                ),
+              ),
+            ),
+            ListTile(
+              title: Text('Home'),
+              onTap: () {
+                // Navigate to home screen
+              },
+            ),
+            ListTile(
+              title: Text('About Us'),
+              onTap: () {
+                // Navigate to about us screen
+              },
+            ),
+            ListTile(
+              title: Text('Contact Us'),
+              onTap: () {
+                // Navigate to contact us screen
+              },
+            ),
+          ],
+        ),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -170,13 +215,19 @@ class _OrderFormState extends State<OrderForm> {
               // Kachumbari is free
               totalPrice += 0;
             }
-            // Show dialog with total price
+            // Show dialog with total price and TILL number
             showDialog(
               context: context,
               builder: (BuildContext context) {
                 return AlertDialog(
                   title: Text('Order Summary'),
-                  content: Text('Total Price: $totalPrice KSH'),
+                  content: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text('Total Price: $totalPrice KSH'),
+                      Text('Pay to TILL NO. 4154162'),
+                    ],
+                  ),
                   actions: <Widget>[
                     TextButton( // Change FlatButton to TextButton
                       child: Text('OK'),
