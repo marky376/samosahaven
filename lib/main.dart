@@ -13,6 +13,7 @@ class SamosaHavenApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
+      debugShowCheckedModeBanner: false, // Setting debugShowCheckedModeBanner to false
       home: HomePage(),
     );
   }
