@@ -118,7 +118,7 @@ class HomePage extends StatelessWidget {
                     style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
                   ),
                   SizedBox(height: 10.0),
-                  Text('We offer delivery within Hostels and Bangik area.'),
+                  Text('We offer delivery within Hostels and Bagik area.'),
                   Text('Delivery charges are free.'),
                   // Add more delivery information as needed
                 ],
